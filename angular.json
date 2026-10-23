@@ -1,0 +1,60 @@
+{
+    "version":  1,
+    "projects":  {
+                     "morjud":  {
+                                    "projectType":  "application",
+                                    "root":  "",
+                                    "sourceRoot":  "src",
+                                    "architect":  {
+                                                      "build":  {
+                                                                    "builder":  "@angular/build:application",
+                                                                    "options":  {
+                                                                                    "outputPath":  "dist/morjud",
+                                                                                    "index":  "src/index.html",
+                                                                                    "browser":  "src/main.ts",
+                                                                                    "tsConfig":  "tsconfig.json",
+                                                                                    "styles":  [
+                                                                                                   "src/theme.css"
+                                                                                               ],
+                                                                                    "assets":  [
+                                                                                                   {
+                                                                                                       "glob":  "**/*",
+                                                                                                       "input":  "public"
+                                                                                                   }
+                                                                                               ],
+                                                                                    "optimization":  {
+                                                                                                         "styles":  {
+                                                                                                                        "inlineCritical":  false,
+                                                                                                                        "minify":  true
+                                                                                                                    },
+                                                                                                         "fonts":  false,
+                                                                                                         "scripts":  true
+                                                                                                     }
+                                                                                },
+                                                                    "configurations":  {
+                                                                                           "production":  {
+                                                                                                              "budgets":  [
+                                                                                                                              {
+                                                                                                                                  "type":  "initial",
+                                                                                                                                  "maximumWarning":  "700kB",
+                                                                                                                                  "maximumError":  "1MB"
+                                                                                                                              }
+                                                                                                                          ],
+                                                                                                              "outputHashing":  "all"
+                                                                                                          }
+                                                                                       },
+                                                                    "defaultConfiguration":  "production"
+                                                                },
+                                                      "serve":  {
+                                                                    "builder":  "@angular/build:dev-server",
+                                                                    "options":  {
+                                                                                    "buildTarget":  "morjud:build"
+                                                                                }
+                                                                }
+                                                  }
+                                }
+                 },
+    "cli":  {
+                "analytics":  false
+            }
+}

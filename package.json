@@ -1,0 +1,7 @@
+{
+  "name": "morjud-healthcare", "version": "1.0.0", "private": true, "type": "module",
+  "scripts": {"start": "node --env-file-if-exists=.env server/index.js", "dev": "concurrently -k \"npm:start\" \"ng serve --proxy-config proxy.conf.json\"", "build": "ng build", "test": "node --test server/*.test.js", "admin": "node --env-file-if-exists=.env server/create-admin.js"},
+  "engines": {"node": ">=22.13.0"},
+  "dependencies": {"@angular/common": "^21.2.0", "@angular/compiler": "^21.2.0", "@angular/core": "^21.2.0", "@angular/forms": "^21.2.0", "@angular/platform-browser": "^21.2.0", "rxjs": "~7.8.2", "express": "^5.1.0", "express-rate-limit": "^8.0.0", "helmet": "^8.1.0", "cookie-parser": "^1.4.7", "zod": "^4.0.0"},
+  "devDependencies": {"@angular/build": "^21.2.0", "@angular/cli": "^21.2.0", "@angular/compiler-cli": "^21.2.0", "typescript": "~5.9.2", "concurrently": "^9.2.0", "@playwright/test": "^1.55.0"}
+}

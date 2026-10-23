@@ -1,0 +1,30 @@
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <span><span class="status-dot"></span> Caring Beyond Treatment</span>
+    <div class="utility-contact">
+      <span class="utility-hours">{{config().hours || 'Monday–Saturday · 07:00–17:00'}}</span>
+      @if(config().phone){<a [href]="'tel:'+config().phone">{{config().phone}}</a>}
+      @if(config().email){<a [href]="'mailto:'+config().email">{{config().email}}</a>}
+    </div>
+  </div>
+</div>
+<header class="site-header" [class.is-scrolled]="scrolled()">
+  <div class="container navigation-inner">
+    <a class="brand" href="/" (click)="$event.preventDefault();go('home')" aria-label="Morjud Healthcare Providers home">
+      <img src="logo_bg.png" width="563" height="456" alt="MORJUD Healthcare Providers — Caring Beyond Treatment">
+    </a>
+    <button id="navigation-toggle" class="menu-toggle" (click)="menuOpen.set(!menuOpen())" [attr.aria-expanded]="menuOpen()" aria-controls="main-navigation" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-navigation" class="main-navigation" [class.open]="menuOpen()" aria-label="Main navigation">
+      <a href="/" (click)="$event.preventDefault();go('home')" [attr.aria-current]="activeView()==='home'?'page':null">Home</a>
+      <a href="/#about" (click)="$event.preventDefault();section('about')">About us</a>
+      <a href="/#services" (click)="$event.preventDefault();section('services')">Services</a>
+      <a href="/#professionals" (click)="$event.preventDefault();section('professionals')">Healthcare professionals</a>
+      <a href="/#contact" (click)="$event.preventDefault();section('contact')">Contact us</a>
+      @if(signedIn()){<button class="text-button account-link" (click)="openAccount()">My account</button>}
+      @else{<button class="text-button account-link" (click)="go('login')">Log in</button>}
+      <button class="button nav-cta" (click)="requestCare()">Book Care <span aria-hidden="true">↗</span></button>
+    </nav>
+  </div>
+</header>

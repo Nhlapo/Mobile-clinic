@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.angular/
+test-results/
+coverage/
+.tools/
+
+.env
+.env.*
+!.env.example
+
+data/*.sqlite
+data/*.sqlite-*
+data/*.db
